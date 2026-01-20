@@ -1,0 +1,38 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Win32" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="IntegrationTests.testsettings" />
+    <File Path="UnitTests.testsettings" />
+  </Folder>
+  <Project Path="CppCoverage/CppCoverage.vcxproj" Id="a50dd5a6-e85a-4e0b-9cc6-90d32503ce62" />
+  <Project Path="CppCoverageTest/CppCoverageTest.vcxproj" Id="4360d299-2f7d-462e-b7ef-0670fd06f478">
+    <BuildDependency Project="CppCoverage/CppCoverage.vcxproj" />
+    <BuildDependency Project="TestCoverageConsole/TestCoverageConsole.vcxproj" />
+    <BuildDependency Project="TestCppCli/TestCppCli.vcxproj" />
+  </Project>
+  <Project Path="Exporter/Exporter.vcxproj" Id="865b72e7-da46-4392-a1b3-e5bd752c7041" />
+  <Project Path="ExporterTest/ExporterTest.vcxproj" Id="a8bdb699-992d-4583-84b4-00ca8cfc1c06">
+    <BuildDependency Project="CppCoverage/CppCoverage.vcxproj" />
+    <BuildDependency Project="Exporter/Exporter.vcxproj" />
+  </Project>
+  <Project Path="FileFilter/FileFilter.vcxproj" Id="6fd7c5be-04bd-496d-a924-285a3e867814" />
+  <Project Path="FileFilterTest/FileFilterTest.vcxproj" Id="94e71104-2bab-420b-8b69-833708ca6d35" />
+  <Project Path="OpenCppCoverage/OpenCppCoverage.vcxproj" Id="3a493ce5-d6be-4da5-bc53-78a8f6481e03" />
+  <Project Path="OpenCppCoverageTest/OpenCppCoverageTest.vcxproj" Id="f892b2b1-64a9-4809-ba9c-24a1f2e82979">
+    <BuildDependency Project="CppCoverageTest/CppCoverageTest.vcxproj" />
+    <BuildDependency Project="ExporterTest/ExporterTest.vcxproj" />
+    <BuildDependency Project="OpenCppCoverage/OpenCppCoverage.vcxproj" />
+  </Project>
+  <Project Path="Plugin/Plugin.vcxproj" Id="2f439508-07e0-4084-9614-1a42bde8ed9a" />
+  <Project Path="PluginTest/PluginTest.vcxproj" Id="69aa0b9b-da99-4b28-b3fc-49ac3ad0a88a" />
+  <Project Path="TestCoverageConsole/TestCoverageConsole.vcxproj" Id="0dd16edf-bd43-4d7b-b357-931f48f2fcc6" />
+  <Project Path="TestCoverageOptimizedBuild/TestCoverageOptimizedBuild.vcxproj" Id="2fd17ba1-0e02-49e6-84c3-0a8f63fef871" />
+  <Project Path="TestCoverageSharedLib/TestCoverageSharedLib.vcxproj" Id="0481b51c-98f1-4e92-a51e-162b77ecd939" />
+  <Project Path="TestCppCli/TestCppCli.vcxproj" Id="21a0dd74-91cb-485a-bacd-a18047e076d8" />
+  <Project Path="TestHelper/TestHelper.vcxproj" Id="120d7bdf-3b21-48b7-8eb7-dad94f863026" />
+  <Project Path="Tools/Tools.vcxproj" Id="7f6d05ef-deb0-4c64-bd13-a85f46314b91" />
+  <Project Path="ToolsTest/ToolsTest.vcxproj" Id="42f32eb3-42b6-498a-9823-26e6e5982ee3" />
+</Solution>
