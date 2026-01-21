@@ -34,3 +34,5 @@ CoverageData.pb.cc
 # NuGet Packages
 nuget.exe
 ThirdParty*.nupkg
+
+.idea
