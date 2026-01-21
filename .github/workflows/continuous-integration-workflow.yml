@@ -9,6 +9,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Cache NuGet packages
+        id: cache-packages
+        uses: actions/cache@v4
+        with:
+          path: ./packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('InstallThirdPartyLibraries.ps1') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: Install third party libraries
         run: ./InstallThirdPartyLibraries.ps1
 
