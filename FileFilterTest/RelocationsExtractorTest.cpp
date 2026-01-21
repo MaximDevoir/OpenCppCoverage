@@ -27,7 +27,7 @@
 namespace fs = std::filesystem;
 
 namespace FileFilterTest
-{	
+{
 	//-------------------------------------------------------------------------
 	fs::path GetDumpBinPath()
 	{
@@ -42,7 +42,7 @@ namespace FileFilterTest
 			throw std::runtime_error("Cannot find dumpbin.exe");
 		return it->path();
 	}
-	
+
 	//-------------------------------------------------------------------------
 	DWORD64 ToDWord64(const std::string& str)
 	{
@@ -51,9 +51,9 @@ namespace FileFilterTest
 
 	//-------------------------------------------------------------------------
 	std::unordered_set<DWORD64> ExtractRelocations(const fs::path& dumpBinPath)
-	{		
-		std::vector<std::string> args = { 
-			"/RELOCATIONS", 
+	{
+		std::vector<std::string> args = {
+			"/RELOCATIONS",
 			TestCoverageOptimizedBuild::GetOutputBinaryPath().string() };
 		const std::string value = TestHelper::RunProcess(dumpBinPath, args);
 		auto current = value.begin();
@@ -63,10 +63,10 @@ namespace FileFilterTest
 
 		// Example: "      CCF  HIGHLOW            1001C3E8"
 		//       or "      150  DIR64      000000018001B7D0"
-		std::regex r(R"(^\s*[[:xdigit:]]*\s*(HIGHLOW|DIR64)\s*([[:xdigit:]]*))");
+		std::regex r(R"(\s*[[:xdigit:]]+\s+(HIGHLOW|DIR64)\s+([[:xdigit:]]+))");
 
 		while (std::regex_search(current, end, match, r))
-		{			
+		{
 			if (match.size() == 3)
 			{
 				auto addressStr = match[2];
@@ -80,28 +80,28 @@ namespace FileFilterTest
 
 	//-------------------------------------------------------------------------
 	DWORD64 ExtractBaseAddress(const fs::path& dumpBinPath)
-	{		
-		std::vector<std::string> args = { 
-			"/HEADERS", 
+	{
+		std::vector<std::string> args = {
+			"/HEADERS",
 			TestCoverageOptimizedBuild::GetOutputBinaryPath().string() };
 		const std::string value = TestHelper::RunProcess(dumpBinPath, args);
 		std::smatch match;
-		
-		// Example: "        10000000 image base (10000000 to 1001FFFF)"		
-		std::regex r(R"(^\s*([[:xdigit:]]*) image base )");
+
+		// Example: "        10000000 image base (10000000 to 1001FFFF)"
+		// Example: "       180000000 image base (0000000180000000 to 0000000180032FFF)"
+		std::regex r(R"(\s*([[:xdigit:]]+) image base)");
 
 		if (!std::regex_search(value, match, r) || match.size() != 2)
 			throw std::runtime_error("Cannot extract image base");
-				
+
 		auto addressStr = match[1];
 		return ToDWord64(addressStr);
 	}
 
 	//-------------------------------------------------------------------------
 	TEST(RelocationsExtractorTest, Extract)
-	{			
+	{
 		FileFilter::RelocationsExtractor extractor;
-
 		auto hProcess = GetCurrentProcess();
 		auto hModule = GetModuleHandle(TestCoverageOptimizedBuild::GetOutputBinaryPath().c_str());
 		auto baseOfImage = reinterpret_cast<DWORD64>(hModule);
