@@ -3,7 +3,10 @@
     <Platform Name="Win32" />
     <Platform Name="x64" />
   </Configurations>
-  <Folder Name="/Solution Items/">
+	<Folder Name="/CI Workflows/">
+		<File Path=".github/workflows/continuous-integration-workflow.yml"/>
+	</Folder>
+	<Folder Name="/Solution Items/">
     <File Path="IntegrationTests.testsettings" />
     <File Path="UnitTests.testsettings" />
   </Folder>
