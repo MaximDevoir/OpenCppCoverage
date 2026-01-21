@@ -25,7 +25,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build solution
-        run: msbuild /m CppCoverage.slnx /p:Configuration=Debug /p:Platform=x64
+        run: msbuild /m CppCoverage.slnx /p:Configuration=Debug /p:Platform=x64 /p:PlatformToolset=v143
 
       - name: Run CppCoverageTest
         run: .\x64\Debug\CppCoverageTest.exe --gtest_filter=-CodeCoverageRunnerTest.OptimizedBuild # Require VS2013
