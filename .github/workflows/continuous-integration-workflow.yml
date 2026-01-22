@@ -18,7 +18,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Install third party libraries
+      - if: ${{ steps.cache-packages.outputs.cache-hit != 'true' }}
+        name: Install third party libraries
+        continue-on-error: true
         run: ./InstallThirdPartyLibraries.ps1
 
       - name: Add msbuild to PATH
