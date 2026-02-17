@@ -36,7 +36,7 @@ namespace CppCoverageTest
 			const std::wstring& value)
 		{
 			cov::OptionsParser parser;
-			std::vector<std::string> arguments = { TestTools::GetOptionPrefix() + optionName, 
+			std::vector<std::string> arguments = { TestTools::GetOptionPrefix() + optionName,
 													Tools::ToLocalString(value) };
 
 			return TestTools::Parse(parser, arguments);
@@ -97,11 +97,11 @@ namespace CppCoverageTest
 				 cov::ProgramOptions::ExcludedModulesOption })
 		{
 			for (const auto& value : {L".", L"..", L"\\.", L"\\.\\"})
-				ASSERT_EQ(boost::none, Parse(optionName, value));
+				ASSERT_FALSE(Parse(optionName, value).has_value());
 			for (const auto& value : {L"test.txt", L"test\\test.txt"})
-				ASSERT_NE(boost::none, Parse(optionName, value));
+				ASSERT_TRUE(Parse(optionName, value).has_value());
 
-			ASSERT_EQ(boost::none, Parse(optionName, L"SubFolder//Folder"));
+			ASSERT_FALSE(Parse(optionName, L"SubFolder//Folder").has_value());
 		}
 	}
 }

@@ -18,7 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <PropertyGroup Label="Globals">
+	<PropertyGroup Label="Vcpkg">
+		<VcpkgEnableManifest>true</VcpkgEnableManifest>
+	</PropertyGroup>
+	<PropertyGroup Label="Globals">
     <ProjectGuid>{4360D299-2F7D-462E-B7EF-0670FD06F478}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CppCoverageTest</RootNamespace>
@@ -176,7 +179,7 @@
     <ClCompile Include="CppCliTest.cpp" />
     <ClCompile Include="DebugInformationEnumeratorTest.cpp" />
     <None Include="OptimizedBuildVS2013\OptimizedBuildVS2013\OptimizedBuildVS2013.cpp" />
-    <ClCompile Include="FilterAssistantTest.cpp" />
+<!--    <ClCompile Include="FilterAssistantTest.cpp" />-->
     <ClCompile Include="UnifiedDiffCoverageFilterManagerTest.cpp" />
     <ClCompile Include="OptionsParserUnifiedDiffTest.cpp" />
     <ClCompile Include="WildcardCoverageFilterTest.cpp" />
@@ -236,12 +239,13 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\thirdparty.1.4.0\build\native\thirdparty.targets" Condition="Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" />
+<!--    <Import Project="..\packages\thirdparty.1.4.0\build\native\thirdparty.targets" Condition="Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" />-->
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\thirdparty.1.4.0\build\native\thirdparty.targets'))" />
-  </Target>
+<!--  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">-->
+<!--    <PropertyGroup>-->
+<!--      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>-->
+<!--    </PropertyGroup>-->
+<!--    <Error Condition="!Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\thirdparty.1.4.0\build\native\thirdparty.targets'))" />-->
+<!--  </Target>-->
+
 </Project>

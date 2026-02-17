@@ -1,0 +1,43 @@
+{
+  "builtin-baseline": "66c0373dc7fca549e5803087b9487edfe3aca0a1",
+  "dependencies": [
+		"boost-optional",
+		"boost-filesystem",
+		"boost-system",
+		"boost-algorithm",
+		"boost-container",
+		"boost-program-options",
+		"boost-regex",
+		"boost-range",
+		"boost-log",
+		"boost-property-tree",
+		"boost-spirit",
+		"boost-uuid",
+		"boost-locale",
+		"boost-iostreams",
+		"ctemplate",
+    "gtest",
+    "poco",
+    "protobuf"
+  ],
+  "overrides": [
+		{
+			"name": "protobuf",
+			"version": "3.11.2"
+		},
+		{ "name": "boost-optional", "version": "1.90.0" },
+		{ "name": "boost-filesystem", "version": "1.90.0" },
+		{ "name": "boost-system", "version": "1.90.0" },
+		{ "name": "boost-algorithm", "version": "1.90.0" },
+		{ "name": "boost-container", "version": "1.90.0" },
+		{ "name": "boost-program-options", "version": "1.90.0" },
+		{ "name": "boost-regex", "version": "1.90.0" },
+		{ "name": "boost-range", "version": "1.90.0" },
+		{ "name": "boost-log", "version": "1.90.0" },
+		{ "name": "boost-property-tree", "version": "1.90.0" },
+		{ "name": "boost-spirit", "version": "1.90.0" },
+		{ "name": "boost-uuid", "version": "1.90.0" },
+		{ "name": "boost-locale", "version": "1.90.0" },
+		{ "name": "boost-iostreams", "version": "1.90.0" }
+  ]
+}

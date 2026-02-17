@@ -18,7 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <PropertyGroup Label="Globals">
+	<PropertyGroup Label="Vcpkg">
+		<VcpkgEnableManifest>true</VcpkgEnableManifest>
+	</PropertyGroup>
+	<PropertyGroup Label="Globals">
     <ProjectGuid>{3A493CE5-D6BE-4DA5-BC53-78A8F6481E03}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OpenCppCoverage</RootNamespace>
@@ -197,12 +200,13 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\thirdparty.1.4.0\build\native\thirdparty.targets" Condition="Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" />
+<!--    <Import Project="..\packages\thirdparty.1.4.0\build\native\thirdparty.targets" Condition="Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" />-->
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\thirdparty.1.4.0\build\native\thirdparty.targets'))" />
-  </Target>
+<!--  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">-->
+<!--    <PropertyGroup>-->
+<!--      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>-->
+<!--    </PropertyGroup>-->
+<!--    <Error Condition="!Exists('..\packages\thirdparty.1.4.0\build\native\thirdparty.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\thirdparty.1.4.0\build\native\thirdparty.targets'))" />-->
+<!--  </Target>-->
+
 </Project>

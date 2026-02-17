@@ -18,3 +18,4 @@
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include <boost/optional/optional_io.hpp>

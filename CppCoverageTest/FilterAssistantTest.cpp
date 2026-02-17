@@ -17,7 +17,7 @@
 #include "stdafx.h"
 
 #include "CppCoverage/FilterAssistant.hpp"
-#include <boost/optional/optional.hpp>
+// #include <boost/optional/optional.hpp>
 #include <filesystem>
 #include "FileSystemMock.hpp"
 
@@ -72,7 +72,7 @@ namespace CppCoverageTest
 	//-------------------------------------------------------------------------
 	TEST_P(FilterAssistantTest, ComputeSuggestSourceFile)
 	{
-		ASSERT_EQ(boost::none, ComputeSuggestedFilter());
+		ASSERT_FALSE(ComputeSuggestedFilter().has_value());
 
 		AddFile("folder1/file1", 1, false);
 		AddFile("folder3/file3", 3, false);
@@ -84,7 +84,8 @@ namespace CppCoverageTest
 
 		AddFile("file4", 2, true);
 		AddFile("file5", 2, false);
-		ASSERT_EQ(boost::none, ComputeSuggestedFilter());
+		ASSERT_FALSE(ComputeSuggestedFilter().has_value());
+
 	}
 
 	//-------------------------------------------------------------------------
